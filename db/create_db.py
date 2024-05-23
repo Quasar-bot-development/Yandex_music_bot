@@ -7,7 +7,8 @@ cursor = connection.cursor()
 cursor.execute(''' 
         CREATE TABLE IF NOT EXISTS Users (
         username TEXT NOT NULL,
-        user_id INTEGER NOT NULL
+        user_id INTEGER NOT NULL,
+        playlist TEXT
         )
         ''')
 

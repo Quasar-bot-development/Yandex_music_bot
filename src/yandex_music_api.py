@@ -19,6 +19,10 @@ def get_info(track):
     artists = ', '.join(artist['name'] for artist in track['artists'])
     return track['title'], artists
     
-    
-def download_track(track):
-    track.download(f'./music/{track["artists"]}-{track["title"]}.mp3')
+
+def download_track(track_name):
+    track = (get_tracks(track_name))[0]
+    artists = ', '.join(artist['name'] for artist in track['artists'])
+    filename = f'./music/{artists}-{track["title"]}.mp3'
+    if not os.path.exists(filename):
+        track.download(filename)
